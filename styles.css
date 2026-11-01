@@ -17,12 +17,9 @@
 body {
   font-family: var(--font-family);
   font-weight: 400;
-  /* Regular */
   background-color: var(--bg-color);
   color: var(--text-color);
-  overflow-x: hidden;
-  position: relative;
-  z-index: 1;
+  overflow-x: clip;
 }
 
 /* Typography */
@@ -250,12 +247,15 @@ nav a:hover {
   transform: none !important;
 }
 
-.project-title-fixed h1 {
-  margin-bottom: 20px;
+.project-title-fixed,
+.about-container h1,
+.contact-container h1 {
+  position: fixed;
+  z-index: 9999;
 }
 
-.project-title-fixed h1 {
-  margin-bottom: 20px;
+.project-detail-container {
+  padding-top: 250px;
 }
 
 .project-content-scrollable {
@@ -389,9 +389,10 @@ nav a:hover {
 }
 
 .contact-container h1 {
-  position: absolute;
+  position: fixed;
   top: 40px;
   left: 60px;
+  z-index: 110;
 }
 
 .contact-yellow-block {
@@ -520,4 +521,310 @@ process-img-wrapper {
 
 .project-card.large.row-3 {
   margin-left: 10px;
+}
+
+
+
+/* ============================= */
+/* MOBIELE VERSIE */
+/* ============================= */
+
+@media screen and (max-width: 768px) {
+
+  /* ALGEMEEN */
+
+  header {
+    padding: 20px;
+    align-items: flex-start;
+  }
+
+  header nav {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  header nav a {
+    font-size: 12px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+
+  /* HOME */
+
+  .home-container {
+    height: 100vh;
+    padding-left: 20px;
+    padding-top: 100px;
+  }
+
+  .logo-yellow-block {
+    top: 0;
+    left: 100px;
+    width: 90px;
+    height: 90px;
+  }
+
+  .carousel {
+    height: calc(100vh - 100px);
+    gap: 25px;
+    padding: 20px 0;
+  }
+
+  .carousel-item {
+    width: 75vw;
+    height: 45vh;
+  }
+
+  .carousel-item.active {
+    width: 85vw;
+    height: 55vh;
+  }
+
+
+  /* PROJECT OVERVIEW */
+  /* PROJECT OVERVIEW */
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 45px;
+    width: 100%;
+    margin: 0;
+    padding: 120px 20px 40px;
+  }
+
+  .projects-yellow-block {
+    display: none;
+  }
+
+  .project-card,
+  .project-card.large,
+  .project-card.tall,
+  .project-card.wide,
+  .project-card.medium,
+  .project-card.row-3,
+  .project-card.row-4,
+  .project-card.row-5 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    grid-column: auto;
+    grid-row: auto;
+    transform: none;
+  }
+
+  .project-card img,
+  .project-card.medium img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+    margin: 0 auto;
+    transform: none;
+    object-fit: contain;
+  }
+
+  .project-info,
+  .project-card.medium .project-info {
+    width: 100%;
+    margin: 5px 0 0;
+    text-align: left;
+  }
+
+  /* Desktop-grid volledig uitschakelen */
+  .project-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 25px;
+  }
+
+  /* Gele vlak verbergen */
+  .project-detail-yellow-block {
+    display: none;
+  }
+
+  /* Projectinformatie */
+  .meta {
+    order: 1;
+    width: 100%;
+    margin: 0;
+  }
+
+  /* Grote eerste afbeelding */
+  .detail-img-1 {
+    order: 2;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin: 0;
+    grid-column: auto;
+    grid-row: auto;
+    object-fit: contain;
+  }
+
+  /* Tekst direct onder afbeelding */
+  .detail-text-1 {
+    order: 3;
+    display: block;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    grid-column: auto;
+    grid-row: auto;
+    text-align: left;
+    writing-mode: horizontal-tb;
+    box-sizing: border-box;
+  }
+
+  .detail-text-1 p,
+  .detail-text-2 p {
+    width: 100%;
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+
+  /* Tweede afbeelding */
+  .detail-img-wrapper.detail-img-2-wrapper {
+    order: 4;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .detail-img-2 {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Tweede tekstblok */
+  .detail-text-2 {
+    order: 5;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  /* Procesafbeeldingen */
+  .process-img-wrapper {
+    order: 6;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .process-img {
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .process-nav-controls {
+    width: 100%;
+  }
+
+
+  /* ABOUT */
+
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    padding: 120px 20px 40px;
+    height: auto;
+    gap: 25px;
+  }
+
+  .about-container h1 {
+    top: 90px;
+    left: 20px;
+    font-size: 28px;
+  }
+
+  .about-image {
+    width: 80%;
+    height: auto;
+    margin: 60px auto 0;
+    align-self: center;
+  }
+
+  .about-text {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+
+  /* CONTACT */
+
+  .contact-container {
+    min-height: 100vh;
+    height: auto;
+    padding: 120px 20px 40px;
+  }
+
+  .contact-container h1 {
+    position: fixed;
+    top: 90px;
+    left: 20px;
+    font-size: 28px;
+    z-index: 110;
+  }
+
+  .contact-yellow-block {
+    width: 70vw;
+    height: 70vw;
+    max-width: 280px;
+    max-height: 280px;
+  }
+
+  .contact-text-wrapper {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .contact-text-wrapper a {
+    font-size: 22px;
+  }
+}
+
+.project-card:last-child {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 0;
+  margin-right: 0;
+  transform: none;
+}
+
+.project-card:last-child img {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  transform: none;
 }
